@@ -2,7 +2,7 @@
 
 React로 제작하는 프로젝트를 위한 초기 세팅.
 
-라이브러리 설치 및 eslint 세팅 완료.
+라이브러리 설치 및 eslint 세팅.
 
 ### 설치된 라이브러리
 - axios
@@ -16,5 +16,6 @@ React로 제작하는 프로젝트를 위한 초기 세팅.
 - redux-saga
 - redux-thunk
 - styled-components
+- node-sass
 
 ### Git clone 후 npm install 필수
