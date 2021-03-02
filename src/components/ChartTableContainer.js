@@ -21,10 +21,8 @@ const ChartTableContainer = () => {
     if (!datas) {
       return null;
     } else {
-      return datas.map((data, key) => {
-        return (
-          <ChartTableRow data={data} key={data["id"]["attributes"]["im:id"]} />
-        );
+      return datas.map((data, index) => {
+        return <ChartTableRow data={data} key={index} />;
       });
     }
   };

@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link, withRouter } from "react-router-dom";
 
-const ChartTableRow = ({ data, key }) => {
+const ChartTableRow = ({ data }) => {
   const thumbnail = data["im:image"][0]["label"];
   const title = data["im:name"]["label"];
   const artist = data["im:artist"]["label"];
   const ranking = data["im:itemCount"]["label"];
+  const id = data["id"]["attributes"]["im:id"];
 
   return (
     <Wrap>
@@ -13,15 +15,24 @@ const ChartTableRow = ({ data, key }) => {
       <ThumbnailCell>
         <Thumbnail alt="thumbnail" src={thumbnail} />
       </ThumbnailCell>
-      <TitleCell>
-        <Title>{title}</Title>
-        <SingerName>{artist}</SingerName>
-      </TitleCell>
+      <Link
+        to={{
+          pathname: `/album/${id}`,
+          state: {
+            data: data,
+          },
+        }}
+      >
+        <TitleCell>
+          <Title>{title}</Title>
+          <SingerName>{artist}</SingerName>
+        </TitleCell>
+      </Link>
     </Wrap>
   );
 };
 
-export default ChartTableRow;
+export default withRouter(ChartTableRow);
 
 const Wrap = styled.div`
   width: 100%;
