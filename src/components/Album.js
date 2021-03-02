@@ -52,6 +52,7 @@ const Wrap = styled.div`
   width: 70%;
   padding-top: 100px;
   margin: 0 auto;
+  font-family: "Roboto", sans-serif;
 `;
 
 const AlbumInfo = styled.div`
