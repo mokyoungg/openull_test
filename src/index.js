@@ -1,5 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import GlobalStyle from "./style/global";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import ChartTableContainer from "./components/ChartTableContainer";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <GlobalStyle />
+    <ChartTableContainer />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
