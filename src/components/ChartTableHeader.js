@@ -7,6 +7,7 @@ const ChartTableHeader = () => {
       <IndexCell>순위</IndexCell>
       <ThumbnailCell></ThumbnailCell>
       <TitleCell>앨범</TitleCell>
+      <DateCell>발매일</DateCell>
     </Wrap>
   );
 };
@@ -20,6 +21,7 @@ const Wrap = styled.div`
   height: 25px;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 
 const IndexCell = styled.div`
@@ -34,3 +36,8 @@ const ThumbnailCell = styled.div`
 `;
 
 const TitleCell = styled.div``;
+
+const DateCell = styled.div`
+  position: absolute;
+  margin-left: 90%;
+`;
