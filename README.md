@@ -1,21 +1,17 @@
-## 프로젝트를 위한 초기세팅
+## 오프널(소비의 미학) 사전과제
 
-React로 제작하는 프로젝트를 위한 초기 세팅.
+최신 음악 차트 페이지 제작
 
-라이브러리 설치 및 eslint 세팅.
+### 구현한 기능
+- 검색 기능
+- 정렬 기능(릴리즈 일자, 이름, 순위)
+- 앨범 선택시, 상세페이지 이동
 
-### 설치된 라이브러리
-- axios
-- cra-template
-- react
-- react-dom
-- react-redux
-- react-router-dom
-- react-scripts
-- redux
-- redux-saga
-- redux-thunk
+### 기능 중 에러
+- 정렬 기능 사용시, render가 늦게 됨
+
+### 사용된 기술
+- react hooks
 - styled-components
-- node-sass
-
-### Git clone 후 npm install 필수
+- axios
+- react-router
