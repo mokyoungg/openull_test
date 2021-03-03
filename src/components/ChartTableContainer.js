@@ -8,7 +8,7 @@ import SortOption from "./SortOption";
 import jsonData from "../apis/jsonData";
 
 const ChartTableContainer = () => {
-  const [datas, setDatas] = useState([]);
+  const [data, setData] = useState([]);
   const [term, setTerm] = useState();
   const [category, setCategory] = useState("인기순");
   const [order, setOrder] = useState("오름차순");
@@ -20,7 +20,7 @@ const ChartTableContainer = () => {
   const fetchData = async () => {
     const res = await (await jsonData.get()).data.feed.entry;
     const orderRes = sort(res, category, order);
-    setDatas(orderRes);
+    setData(orderRes);
   };
 
   useEffect(() => {
@@ -31,17 +31,17 @@ const ChartTableContainer = () => {
     const tempResponse = await jsonData.get();
     const res = tempResponse.data.feed.entry;
 
-    const timeoutId = setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (term) {
-        const searchDatas = search(res, term);
-        setDatas(sort(searchDatas, category, order));
+        const searchData = search(res, term);
+        setData(sort(searchData, category, order));
       } else if (!term) {
-        setDatas(sort(res, category, order));
+        setData(sort(res, category, order));
       }
     }, 1000);
 
     return () => {
-      clearTimeout(timeoutId);
+      clearTimeout(timeout);
     };
   };
 
@@ -59,8 +59,8 @@ const ChartTableContainer = () => {
   }, [category, order]);
 
   const sortData = () => {
-    const sortedDatas = sort(datas, category, order);
-    setDatas(sortedDatas);
+    const sortedData = sort(data, category, order);
+    setData(sortedData);
   };
 
   const sort = (arr, str1, str2) => {
@@ -126,10 +126,10 @@ const ChartTableContainer = () => {
   };
 
   const renderList = () => {
-    if (!datas) {
+    if (!data) {
       return null;
     } else {
-      return datas.map((data, index) => {
+      return data.map((data, index) => {
         return <ChartTableRow data={data} key={index} />;
       });
     }
@@ -137,8 +137,10 @@ const ChartTableContainer = () => {
 
   return (
     <Wrap>
-      <SortOption handleCategory={handleCategory} handleOrder={handleOrder} />
-      <SearchBar term={term} setTerm={setTerm} />
+      <FunctionContainer>
+        <SearchBar term={term} setTerm={setTerm} />
+        <SortOption handleCategory={handleCategory} handleOrder={handleOrder} />
+      </FunctionContainer>
       <ChartTableHeader />
       {renderList()}
     </Wrap>
@@ -150,4 +152,12 @@ export default ChartTableContainer;
 const Wrap = styled.div`
   width: 70%;
   margin: 0 auto;
+`;
+
+const FunctionContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;

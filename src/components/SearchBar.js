@@ -22,7 +22,6 @@ export default SearchBar;
 
 const Wrap = styled.div`
   font-family: "Roboto", sans-serif;
-  margin-bottom: 20px;
 `;
 
 const SearchBarContainer = styled.div`

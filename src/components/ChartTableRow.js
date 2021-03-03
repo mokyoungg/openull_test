@@ -8,6 +8,7 @@ const ChartTableRow = ({ data }) => {
   const artist = data["im:artist"]["label"];
   const ranking = data["im:itemCount"]["label"];
   const id = data["id"]["attributes"]["im:id"];
+  const date = data["im:releaseDate"]["label"].substring(0, 10);
 
   return (
     <Wrap>
@@ -28,6 +29,7 @@ const ChartTableRow = ({ data }) => {
           <SingerName>{artist}</SingerName>
         </TitleCell>
       </Link>
+      <ReleaseCell>{date}</ReleaseCell>
     </Wrap>
   );
 };
@@ -44,13 +46,13 @@ const Wrap = styled.div`
   font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 
 const IndexCell = styled.div`
   text-align: center;
   vertical-align: middle;
   font-size: 1.5em;
-
   min-width: 100px;
 `;
 
@@ -80,4 +82,9 @@ const Title = styled.div`
 const SingerName = styled.div`
   font-size: 1.1em;
   height: 20px;
+`;
+
+const ReleaseCell = styled.div`
+  position: absolute;
+  margin-left: 90%;
 `;
