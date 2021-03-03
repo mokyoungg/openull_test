@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ChartTableContainer from "./components/ChartTableContainer";
-import Album from "./components/Album";
+import ChartTableContainer from "./pages/ChartTableContainer";
+import Album from "./pages/Album";
 
 class Routes extends React.Component {
   render() {

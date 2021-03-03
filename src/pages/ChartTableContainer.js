@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import ChartTableHeader from "./ChartTableHeader";
-import ChartTableRow from "./ChartTableRow";
-import SearchBar from "./SearchBar";
-import SortOption from "./SortOption";
+import ChartTableHeader from "../components/ChartTableHeader";
+import ChartTableRow from "../components/ChartTableRow";
+import SearchBar from "../components/SearchBar";
+import SortOption from "../components/SortOption";
 
 import jsonData from "../apis/jsonData";
 
