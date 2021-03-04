@@ -12,10 +12,15 @@ const ChartTableContainer = () => {
   const [term, setTerm] = useState();
   const [category, setCategory] = useState("인기순");
   const [order, setOrder] = useState("오름차순");
+  const [filtered, setFilterd] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (data.length === 0) {
+      fetchData();
+    } else {
+      sortData();
+    }
+  }, [category, order]);
 
   const fetchData = async () => {
     const res = await (await jsonData.get()).data.feed.entry;
@@ -54,12 +59,9 @@ const ChartTableContainer = () => {
     return result;
   };
 
-  useEffect(() => {
-    sortData();
-  }, [category, order]);
-
   const sortData = () => {
-    const sortedData = sort(data, category, order);
+    const sortedData = sort([...data], category, order);
+    console.log(data === sortedData ? true : false);
     setData(sortedData);
   };
 
@@ -134,7 +136,6 @@ const ChartTableContainer = () => {
       });
     }
   };
-
   return (
     <Wrap>
       <FunctionContainer>
