@@ -21,7 +21,5 @@
 ## 디자인 가이드
 - YouTube Music, Apple Music
 
------------------------
-
 ## 비디오(이미지를 클릭하세요)
 [![Watch the video](https://img.youtube.com/vi/o8kJfWkFwzg/maxresdefault.jpg)](https://youtu.be/o8kJfWkFwzg)
